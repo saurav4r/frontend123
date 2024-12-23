@@ -22,6 +22,8 @@ import {
 
 import { ArrowUpward, ArrowDownward } from '@mui/icons-material';
 
+const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000';
+
 const theme = createTheme({
   palette: {
     primary: {
@@ -47,7 +49,7 @@ const App = () => {
 
 
   useEffect(() => {
-    fetch('http://localhost:5000/api/candidates')
+    fetch(`${API_URL}/api/candidates`)
       .then((response) => response.json())
       .then((data) => setCandidates(data))
       .catch((error) => console.error('Error fetching data:', error));
